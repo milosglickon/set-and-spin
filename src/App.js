@@ -1,6 +1,5 @@
 import React, {useEffect, useState, Fragment} from "react"
 import axios from "axios"
-import "./App.css"
 import Header from "./components/header"
 import TeamsList from "./components/teamsList"
 import Loader from "./components/loader"
@@ -57,5 +56,3 @@ export default () => {
         </Fragment>
     )
 }
-
-// export default App

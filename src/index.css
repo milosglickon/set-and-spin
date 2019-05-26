@@ -12,4 +12,119 @@ code {
     monospace;
 }
 
+#app-logo {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 0.2rem;
+}
+
+#app-header {
+    width: 100%;
+    background-color: #282c34;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+}
+
+#header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10rem;
+}
+
+#app-title {
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+
+#spinner-logo {
+    animation: App-logo-spin infinite 5s linear;
+    height: 4rem;
+  }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10rem;
+}
+
+#list {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    padding: 0.5rem 3rem;
+}
+
+.row-cell {
+    width: 15rem;
+    text-align: center;
+}
+
+.row-right-wrapper {
+    display: flex;
+}
+
+.favourite-team {
+    color: #2873ca;
+}
+
+.row:nth-child(even) {
+    background-color: #E0E7EA;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#list-header {
+    background-color: #0b273d;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#favourite-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5rem;
+}
+#favourite-button {
+    padding: 0.5rem;
+    color: white;
+    background-color: #2873ca;
+    border-radius: 0.2rem;
+    border: none;
+    font-weight: bold;
+    outline: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+
 
