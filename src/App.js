@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState, Fragment} from "react"
+import axios from "axios"
+import "./App.css"
+import Header from "./components/header"
+import TeamsList from "./components/teamsList"
+import Loader from "./components/loader"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const API_URL = "https://www.balldontlie.io/api/v1/teams"
+
+export default () => {
+    const [data, setState] = useState({teams: [], isFetching: true})
+
+    useEffect(() => {
+        const fetchUsersWithAxios = () => {
+            axios.get(API_URL)
+                .then(response => {
+                const {data: {data: teams}} = response
+                setState({teams: teams, isFetching: false})
+            })
+            .catch(e => {
+                console.log(e)
+                setState({teams:[], isFetching: false})
+            })
+        }
+        fetchUsersWithAxios()
+    }, [])
+
+    const updateTeamStatus = (id) => {
+        const updatedTeams = data.teams.map(t => {
+            let team = {...t}
+            if (team.id === id) {
+                team.favourite = !t.favourite
+            }
+            return team
+        })
+        setState({...data, teams: updatedTeams})
+    }
+
+    const toggleShowFavourite = () => {
+        setState({...data, showFavourite: !data.showFavourite})
+    }
+
+    const getTeamsToShow = () => {
+        return data.showFavourite ? data.teams.filter(t => t.favourite) : data.teams
+    }
+
+    return (
+        <Fragment>
+            <Header/>
+            {data.isFetching ? <Loader/> : (
+                <TeamsList
+                    teams={getTeamsToShow()}
+                    showFavourite={!!data.showFavourite}
+                    toggleShowFavourite={toggleShowFavourite}
+                    updateTeamStatus={updateTeamStatus}/>
+            )}
+        </Fragment>
+    )
 }
 
-export default App;
+// export default App
