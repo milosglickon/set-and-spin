@@ -47,7 +47,7 @@ export default ({teams, updateTeamStatus, showFavourite, toggleShowFavourite}) =
                     {listBody}
                 </div>
             ) : (
-                <span>There are no favourite teams</span>
+                <span className="bold">There are no favourite teams yet...</span>
             )}
         </div>
     )

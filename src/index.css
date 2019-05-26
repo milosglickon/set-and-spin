@@ -7,6 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen and (max-width: 640px) {
+    body {
+        font-size: 0.6rem;
+    }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -125,6 +131,22 @@ code {
     cursor: pointer;
 }
 
+@media screen and (max-width: 640px) {
+    .content {
+        padding: 0 1rem;
+    }
+}
 
+@media (max-width: 640px) {
+    .row-cell {
+        width: 6rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #header-content {
+        padding: 0 1rem;
+    }
+}
 
 

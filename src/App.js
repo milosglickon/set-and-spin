@@ -39,16 +39,14 @@ export default () => {
         setState({...data, showFavourite: !data.showFavourite})
     }
 
-    const getTeamsToShow = () => {
-        return data.showFavourite ? data.teams.filter(t => t.favourite) : data.teams
-    }
+    const teamsToShow = data.showFavourite ? data.teams.filter(t => t.favourite) : data.teams
 
     return (
         <Fragment>
             <Header/>
             {data.isFetching ? <Loader/> : (
                 <TeamsList
-                    teams={getTeamsToShow()}
+                    teams={teamsToShow}
                     showFavourite={!!data.showFavourite}
                     toggleShowFavourite={toggleShowFavourite}
                     updateTeamStatus={updateTeamStatus}/>
